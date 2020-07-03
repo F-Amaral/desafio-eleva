@@ -11,6 +11,7 @@ namespace SistemaPrefeitura.Domain.SQL.DataContext
     public class DefaultContext : DbContext
     {
         public DbSet<Escola> Escolas { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
         public DefaultContext([NotNullAttribute] DbContextOptions options) : base(options)
         {
         }

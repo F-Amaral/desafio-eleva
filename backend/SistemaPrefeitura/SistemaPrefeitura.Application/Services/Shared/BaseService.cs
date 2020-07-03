@@ -11,9 +11,9 @@ namespace SistemaPrefeitura.Application.Services.Shared
         where TEntity: Entity
         where TRepository: IBaseRepository<TEntity>
     {
-        private readonly TRepository _repository;
+        protected readonly TRepository _repository;
 
-        public BaseService(TRepository repository)
+        protected BaseService(TRepository repository)
         {
             _repository = repository;
         }

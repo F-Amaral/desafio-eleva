@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPrefeitura.Domain.SQL.DataContext;
 
 namespace SistemaPrefeitura.Domain.SQL.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    partial class DefaultContextModelSnapshot : ModelSnapshot
+    [Migration("20200703200335_alunosMigration")]
+    partial class alunosMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,7 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EscolaId")
+                    b.Property<Guid?>("EscolaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Nome")
@@ -143,9 +145,7 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                 {
                     b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
                         .WithMany("Alunos")
-                        .HasForeignKey("EscolaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EscolaId");
 
                     b.HasOne("SistemaPrefeitura.Domain.Models.Turma", null)
                         .WithMany("Alunos")

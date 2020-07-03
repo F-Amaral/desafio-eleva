@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SistemaPrefeitura.APP.Mappers.AlunoMappers;
 using SistemaPrefeitura.APP.Mappers.EscolaMappers;
 using SistemaPrefeitura.Application.Interfaces;
 using SistemaPrefeitura.Application.Services;
@@ -26,12 +27,14 @@ namespace SistemaPrefeitura.APP.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IEscolaService, EscolaService>();
+            services.AddScoped<IAlunoService, AlunoService>();
             return services;
         }
 
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IEscolaRepository, EscolaRepository>();
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
             return services;
         }
 
@@ -39,6 +42,9 @@ namespace SistemaPrefeitura.APP.Extensions
         {
             services.AddScoped<EscolaDTOToEscolaMapper>();
             services.AddScoped<EscolaToEscolaDTOMapper>();
+            services.AddScoped<AlunoDTOToAlunoMapper>();
+            services.AddScoped<AlunoToAlunoDTOMapper>();
+
             return services;
         }
 

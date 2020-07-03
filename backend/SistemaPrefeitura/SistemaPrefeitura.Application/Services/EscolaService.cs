@@ -13,6 +13,6 @@ namespace SistemaPrefeitura.Application.Services
     {
         public EscolaService(IEscolaRepository escolaRepository) : base(escolaRepository)
         {
-        }
+        }   
     }
 }

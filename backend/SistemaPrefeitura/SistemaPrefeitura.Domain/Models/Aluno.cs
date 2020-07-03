@@ -8,7 +8,8 @@ namespace SistemaPrefeitura.Domain.Models
     public class Aluno : Entity
     {
         public string Nome { get; set; }
-        public string SobreNome { get; set; }
+        public string Sobrenome { get; set; }
         public DateTime DataNascimento { get; set; }
+        public virtual Guid EscolaId { get; set; }
     }
 }
