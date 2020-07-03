@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SistemaPrefeitura.APP.Extensions;
 
 namespace SistemaPrefeitura.APP
 {
@@ -25,6 +26,10 @@ namespace SistemaPrefeitura.APP
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDatabase(Configuration);
+            services.AddRepositories();
+            services.AddServices();
+            services.AddMappers();
             services.AddControllers();
         }
 
@@ -40,7 +45,7 @@ namespace SistemaPrefeitura.APP
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
