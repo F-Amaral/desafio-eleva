@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.APP", "SistemaPrefeitura.APP\SistemaPrefeitura.APP.csproj", "{93D19694-1CD0-4493-8772-868D687916CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Domain", "SistemaPrefeitura.Domain\SistemaPrefeitura.Domain.csproj", "{9933CD45-26C1-4B0D-B4DC-2203C257BC17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Infra", "SistemaPrefeitura.Infra\SistemaPrefeitura.Infra.csproj", "{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Infra.Common", "SistemaPrefeitura.Infra.Common\SistemaPrefeitura.Infra.Common.csproj", "{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Domain.SQL", "SistemaPrefeitura.Domain.SQL\SistemaPrefeitura.Domain.SQL.csproj", "{07345B07-8727-4EC2-A3E8-C8A33EF783A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Application", "SistemaPrefeitura.Application\SistemaPrefeitura.Application.csproj", "{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93D19694-1CD0-4493-8772-868D687916CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D19694-1CD0-4493-8772-868D687916CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D19694-1CD0-4493-8772-868D687916CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D19694-1CD0-4493-8772-868D687916CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9933CD45-26C1-4B0D-B4DC-2203C257BC17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9933CD45-26C1-4B0D-B4DC-2203C257BC17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9933CD45-26C1-4B0D-B4DC-2203C257BC17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9933CD45-26C1-4B0D-B4DC-2203C257BC17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07345B07-8727-4EC2-A3E8-C8A33EF783A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07345B07-8727-4EC2-A3E8-C8A33EF783A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07345B07-8727-4EC2-A3E8-C8A33EF783A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07345B07-8727-4EC2-A3E8-C8A33EF783A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C44A7DF8-3FD5-45EB-BA95-BFF6C5E01F49}
+	EndGlobalSection
+EndGlobal
