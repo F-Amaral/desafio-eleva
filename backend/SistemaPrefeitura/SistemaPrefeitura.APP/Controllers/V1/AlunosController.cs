@@ -34,13 +34,13 @@ namespace SistemaPrefeitura.APP.Controllers.V1.Escolas
         [HttpGet]
         public async Task<IActionResult> GetAlunos(Guid escolaId)
         {
-            return Ok(await _alunoService.GetAllAsync(escolaId));
+            return Ok(_alunoToAlunoDTOMapper.Map(await _alunoService.GetAllAsync(escolaId)));
         }
 
         [HttpGet("{alunoId}")]
         public async Task<IActionResult> GetAluno(Guid alunoId)
         {
-            return Ok(await _alunoService.GetByIdAsync(alunoId));
+            return Ok(_alunoToAlunoDTOMapper.Map(await _alunoService.GetByIdAsync(alunoId)));
         }
 
         [HttpPost]
