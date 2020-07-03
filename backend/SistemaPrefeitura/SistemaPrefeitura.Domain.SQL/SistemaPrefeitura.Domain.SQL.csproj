@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200703202728_AlunoEscolaFK.cs" />
     <Compile Remove="Migrations\20200703202728_AlunoEscolaFK.Designer.cs" />
+    <Compile Remove="Migrations\20200703234431_TurmasEscolasFK.cs" />
+    <Compile Remove="Migrations\20200703234431_TurmasEscolasFK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

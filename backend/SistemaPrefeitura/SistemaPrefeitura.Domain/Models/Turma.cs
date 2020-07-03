@@ -9,6 +9,7 @@ namespace SistemaPrefeitura.Domain.Models
     {
         public string Nome { get; set; }
         public string Ano { get; set; }
+        public virtual Guid EscolaId { get; set; }
         public virtual IEnumerable<Disciplina> Disciplinas { get; set; }
         public virtual IEnumerable<Aluno> Alunos { get; set; }
     }
