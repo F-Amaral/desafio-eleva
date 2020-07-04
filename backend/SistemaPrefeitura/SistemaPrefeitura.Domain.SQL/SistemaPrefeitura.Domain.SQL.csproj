@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20200703202728_AlunoEscolaFK.Designer.cs" />
     <Compile Remove="Migrations\20200703234431_TurmasEscolasFK.cs" />
     <Compile Remove="Migrations\20200703234431_TurmasEscolasFK.Designer.cs" />
+    <Compile Remove="Migrations\20200704003434_DisciplinaEscolaFK.cs" />
+    <Compile Remove="Migrations\20200704003434_DisciplinaEscolaFK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

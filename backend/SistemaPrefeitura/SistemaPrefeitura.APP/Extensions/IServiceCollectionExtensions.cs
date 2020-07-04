@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SistemaPrefeitura.APP.Mappers.AlunoMappers;
+using SistemaPrefeitura.APP.Mappers.DisciplinaMappers;
 using SistemaPrefeitura.APP.Mappers.EscolaMappers;
 using SistemaPrefeitura.APP.Mappers.ProfessorMappers;
 using SistemaPrefeitura.APP.Mappers.TurmaMappers;
@@ -32,6 +33,7 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<IAlunoService, AlunoService>();
             services.AddScoped<IProfessorService, ProfessorService>();
             services.AddScoped<ITurmaService, TurmaService>();
+            services.AddScoped<IDisciplinaService, DisciplinaService>();
             return services;
         }
 
@@ -41,6 +43,7 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<IAlunoRepository, AlunoRepository>();
             services.AddScoped<IProfessorRepository, ProfessorRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
+            services.AddScoped<IDisciplinaRepository, DisciplinaRepository>();
             return services;
         }
 
@@ -54,6 +57,8 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<ProfessorToProfessorDTOMapper>();
             services.AddScoped<TurmaDTOToTurmaMapper>();
             services.AddScoped<TurmaToTurmaDTOMapper>();
+            services.AddScoped<DisciplinaDTOToDisciplinaMapper>();
+            services.AddScoped<DisciplinaToDisciplinaDTOMapper>();
 
 
             return services;

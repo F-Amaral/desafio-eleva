@@ -6,18 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaPrefeitura.APP.Mappers.AlunoMappers
+namespace SistemaPrefeitura.APP.Mappers.DisciplinaMappers
 {
-    public class AlunoToAlunoDTOMapper : BaseMapper<Aluno, AlunoDTO>
+    public class DisciplinaToDisciplinaDTOMapper : BaseMapper<Disciplina, DisciplinaDTO>
     {
-        public override AlunoDTO Map(Aluno entry)
+        public override DisciplinaDTO Map(Disciplina entry)
         {
-            return new AlunoDTO()
+            return new DisciplinaDTO()
             {
                 Id = entry.Id,
                 Nome = entry.Nome,
-                Sobrenome = entry.Sobrenome,
-                DataNascimento = entry.DataNascimento.Date,
+                ProfessorId = entry.ProfessorId,
                 EscolaId = entry.EscolaId
             };
         }

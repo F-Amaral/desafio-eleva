@@ -1,12 +1,13 @@
-﻿using SistemaPrefeitura.Domain.Models.Shared;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace SistemaPrefeitura.Domain.Models
+namespace SistemaPrefeitura.APP.DTOs
 {
-    public class Disciplina : Entity
+    public class DisciplinaDTO
     {
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public Guid ProfessorId { get; set; }
         public Guid EscolaId { get; set; }
