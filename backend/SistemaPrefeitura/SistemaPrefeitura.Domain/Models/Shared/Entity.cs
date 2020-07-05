@@ -9,7 +9,6 @@ namespace SistemaPrefeitura.Domain.Models.Shared
     {
         [Key]
         public Guid Id { get; set; }
-        //public abstract Entity WithId(Guid Id);
-
+        public DateTime CreatedAt { get; set; }
     }
 }

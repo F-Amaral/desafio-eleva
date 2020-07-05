@@ -1,11 +1,40 @@
+@import 'include-media/dist/_include-media.scss';
+
+
 .title { 
     margin-top: 10px;
     margin-left: 15px;
 }
 
-.base-grid-list{ 
+.row {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
+app-alunos { 
+    display: flex;
+    flex: 1;
+}
+
+app-professores { 
+    display: flex;
+    flex: 1;
+}
+
+app-disciplinas { 
+    display: flex;
+    flex: 1;
+}
+
+app-turmas { 
+    display: flex;
+    flex: 1;
+}
+
+
+@include media(">phone", "<tablet"){
+    .row{
+        flex-direction: column;
+    }
 }

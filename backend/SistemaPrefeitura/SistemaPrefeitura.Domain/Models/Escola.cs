@@ -9,7 +9,7 @@ namespace SistemaPrefeitura.Domain.Models
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public IEnumerable<Turma> Turmas { get; set; }
+        public virtual IEnumerable<Turma> Turmas { get; set; }
         public virtual IEnumerable<Professor> Professores { get; set; }
         public virtual IEnumerable<Aluno> Alunos { get; set; }
         public virtual IEnumerable<Disciplina> Disciplinas { get; set; }

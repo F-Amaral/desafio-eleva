@@ -5,11 +5,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor.service';
-import { ExternalApiComponent } from './components/external-api/external-api.component';
 import { EscolasDetalhesComponent } from './pages/escolas-detalhes/escolas-detalhes.component';
 
 const routes: Routes = [
-  {path: '', component: EscolasComponent},
+  {path: 'escolas', component: EscolasComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'escolas/:id', component:EscolasDetalhesComponent, canActivate:[AuthGuard]}
 ];

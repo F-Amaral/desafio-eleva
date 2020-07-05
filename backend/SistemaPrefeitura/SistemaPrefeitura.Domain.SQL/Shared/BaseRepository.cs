@@ -23,7 +23,7 @@ namespace SistemaPrefeitura.Domain.SQL.Shared
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await DbSet.ToListAsync();
+            return await DbSet.OrderBy(x => x.CreatedAt).ToListAsync();
         }
         public virtual async Task<TEntity> GetByIdAsync(Guid id)
         {

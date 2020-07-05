@@ -22,6 +22,7 @@ namespace SistemaPrefeitura.Application.Services.Shared
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             entity.Id = Guid.NewGuid();
+            entity.CreatedAt = DateTime.Now;
             await _repository.AddAsync(entity);
             await _repository.SaveChangesAsync();
             return entity;

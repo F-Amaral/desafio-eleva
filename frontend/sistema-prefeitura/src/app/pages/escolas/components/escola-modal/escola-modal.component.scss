@@ -1,0 +1,23 @@
+div { 
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    
+}
+
+
+.escolaModalContainer .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.escolaModalContainer .mat-form-field {
+    width: 220px;
+  }
+  
+  .escolaModalContainer form {
+    margin-bottom: 20px;
+  }
+  
+  .escolaModalContainer form > * {
+    margin: 5px 0;
+  }

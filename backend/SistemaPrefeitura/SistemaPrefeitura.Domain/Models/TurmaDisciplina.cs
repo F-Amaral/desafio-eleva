@@ -8,8 +8,8 @@ namespace SistemaPrefeitura.Domain.Models
     public class TurmaDisciplina : Entity
     {
         public Guid TurmaId { get; set; }
-        public Turma Turma { get; set; }
+        public virtual Turma Turma { get; set; }
         public Guid DisciplinaId { get; set; }
-        public Disciplina Disciplina { get; set; }
+        public virtual Disciplina Disciplina { get; set; }
     }
 }

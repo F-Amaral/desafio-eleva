@@ -25,6 +25,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime2");
 
@@ -55,6 +58,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("EscolaId")
                         .HasColumnType("uniqueidentifier");
 
@@ -77,6 +83,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
 
@@ -93,6 +102,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("EscolaId")
                         .HasColumnType("uniqueidentifier");
@@ -119,6 +131,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.Property<string>("Ano")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("EscolaId")
                         .HasColumnType("uniqueidentifier");
 
@@ -137,6 +152,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("DisciplinaId")
                         .HasColumnType("uniqueidentifier");

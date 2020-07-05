@@ -69,7 +69,9 @@ namespace SistemaPrefeitura.APP.Extensions
         public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<DefaultContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                options
+                .UseLazyLoadingProxies()
+                .UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             return services;
         }
 

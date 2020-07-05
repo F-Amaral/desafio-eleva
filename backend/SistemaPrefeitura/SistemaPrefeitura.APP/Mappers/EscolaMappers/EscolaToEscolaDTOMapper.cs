@@ -16,7 +16,8 @@ namespace SistemaPrefeitura.APP.Mappers.EscolaMappers
             {
                 Id = entry.Id,
                 Descricao = entry.Descricao,
-                Nome = entry.Nome
+                Nome = entry.Nome,
+                CreatedAt = entry.CreatedAt
             };
         }
     }
