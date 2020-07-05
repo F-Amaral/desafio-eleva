@@ -10,6 +10,7 @@ namespace SistemaPrefeitura.Domain.Models
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public DateTime DataNascimento { get; set; }
-        public virtual Guid EscolaId { get; set; }
+        public Guid EscolaId { get; set; }
+        //public Escola Escola { get; set; }
     }
 }

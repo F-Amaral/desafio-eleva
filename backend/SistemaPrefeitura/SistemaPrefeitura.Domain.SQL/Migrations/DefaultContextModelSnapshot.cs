@@ -64,14 +64,9 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.Property<Guid>("ProfessorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("TurmaId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EscolaId");
-
-                    b.HasIndex("TurmaId");
 
                     b.ToTable("Disciplinas");
                 });
@@ -137,6 +132,27 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                     b.ToTable("Turmas");
                 });
 
+            modelBuilder.Entity("SistemaPrefeitura.Domain.Models.TurmaDisciplina", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DisciplinaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TurmaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DisciplinaId");
+
+                    b.HasIndex("TurmaId");
+
+                    b.ToTable("TurmasDisciplinas");
+                });
+
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Aluno", b =>
                 {
                     b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
@@ -157,10 +173,6 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                         .HasForeignKey("EscolaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Turma", null)
-                        .WithMany("Disciplinas")
-                        .HasForeignKey("TurmaId");
                 });
 
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Professor", b =>
@@ -178,6 +190,21 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
                         .WithMany("Turmas")
                         .HasForeignKey("EscolaId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SistemaPrefeitura.Domain.Models.TurmaDisciplina", b =>
+                {
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Disciplina", "Disciplina")
+                        .WithMany("TurmasDisciplinas")
+                        .HasForeignKey("DisciplinaId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Turma", "Turma")
+                        .WithMany("TurmasDisciplinas")
+                        .HasForeignKey("TurmaId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

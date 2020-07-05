@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,18 @@ namespace SistemaPrefeitura.APP
             services.AddRepositories();
             services.AddServices();
             services.AddMappers();
+
+            // 1. Add Authentication Services
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://desafio-eleva.us.auth0.com/";
+                options.Audience = "https://localhost:44386/api/v1/";
+            });
+
             services.AddControllers();
         }
 
@@ -45,7 +58,8 @@ namespace SistemaPrefeitura.APP
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="nav-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/" class="nav-link">Sistema Escolar</a>
+  <span class="nav-spacer"></span>
+  <!-- <span *ngIf="auth.loggedIn"></span> -->
+  <button mat-icon-button 
+  class="nav-icon" 
+  aria-label="Perfil" 
+  routerLink="/profile"
+  *ngIf="auth.loggedIn"
+  >
+  <mat-icon>account_circle</mat-icon>
+</button>
+  <button mat-icon-button 
+    class="nav-icon" 
+    aria-label="Login" 
+    (click)="auth.login()"
+    *ngIf="!auth.loggedIn"
+    >
+    <span>Login</span>
+  </button>
+  <button mat-icon-button 
+  class="nav-icon" 
+  aria-label="Login" 
+  (click)="auth.logout()"
+  *ngIf="auth.loggedIn"
+  >
+  <span>Sair</span>
+</button>
+</mat-toolbar>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SistemaPrefeitura.APP.DTOs;
@@ -13,6 +14,7 @@ namespace SistemaPrefeitura.APP.Controllers.V1
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class EscolasController : ControllerBase
     {
         #region Properties

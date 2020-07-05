@@ -16,9 +16,24 @@ namespace SistemaPrefeitura.Domain.SQL.DataContext
         public DbSet<Turma> Turmas { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
 
+        public DbSet<TurmaDisciplina> TurmasDisciplinas { get; set; }
         public DefaultContext([NotNullAttribute] DbContextOptions options) : base(options)
         {
         }
-    
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TurmaDisciplina>()
+                .HasOne(x => x.Disciplina)
+                .WithMany(x => x.TurmasDisciplinas)
+                .HasForeignKey(x => x.DisciplinaId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<TurmaDisciplina>()
+                .HasOne(x => x.Turma)
+                .WithMany(x => x.TurmasDisciplinas)
+                .HasForeignKey(x => x.TurmaId)
+                .OnDelete(DeleteBehavior.NoAction);
+        }
     }
 }

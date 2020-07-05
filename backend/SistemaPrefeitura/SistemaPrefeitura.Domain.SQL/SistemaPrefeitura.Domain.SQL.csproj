@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20200703234431_TurmasEscolasFK.Designer.cs" />
     <Compile Remove="Migrations\20200704003434_DisciplinaEscolaFK.cs" />
     <Compile Remove="Migrations\20200704003434_DisciplinaEscolaFK.Designer.cs" />
+    <Compile Remove="Migrations\20200704151119_turmaDisciplinaFK.cs" />
+    <Compile Remove="Migrations\20200704151119_turmaDisciplinaFK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

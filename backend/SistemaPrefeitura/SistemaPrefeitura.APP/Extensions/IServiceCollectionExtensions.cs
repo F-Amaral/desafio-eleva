@@ -34,6 +34,7 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<IProfessorService, ProfessorService>();
             services.AddScoped<ITurmaService, TurmaService>();
             services.AddScoped<IDisciplinaService, DisciplinaService>();
+            services.AddScoped<ITurmaDisciplinaService, TurmaDisciplinaService>();
             return services;
         }
 
@@ -44,6 +45,7 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<IProfessorRepository, ProfessorRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
             services.AddScoped<IDisciplinaRepository, DisciplinaRepository>();
+            services.AddScoped<ITurmaDisciplinaRepository, TurmaDisciplinaRepository>();
             return services;
         }
 
