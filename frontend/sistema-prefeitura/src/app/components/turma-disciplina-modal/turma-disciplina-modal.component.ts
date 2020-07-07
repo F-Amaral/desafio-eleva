@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EscolaService } from 'src/app/services/escola/escola.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Professor } from 'src/app/shared/models/Professor.model';
 
 @Component({
   selector: 'app-turma-disciplina-modal',
@@ -16,7 +17,7 @@ export class TurmaDisciplinaModalComponent implements OnInit {
   public turma: Turma;
   public disciplinas: Disciplina[];
   public disciplinasToInclude: string[] = [];
-  public novaDisciplina: Disciplina;
+  public novaDisciplina: Disciplina = new Disciplina();
   escolaId: string;
 
   constructor(
@@ -28,6 +29,7 @@ export class TurmaDisciplinaModalComponent implements OnInit {
   ) {
     this.turma = data.turma ? data.turma : new Turma();
     this.escolaId = data.escolaId;
+    this.novaDisciplina.professor = new Professor();
   }
 
   ngOnInit(): void {

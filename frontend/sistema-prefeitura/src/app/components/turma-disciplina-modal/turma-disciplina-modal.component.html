@@ -17,7 +17,7 @@
         <mat-divider></mat-divider>
         <h2>Cadastre uma nova disciplina</h2>
         <div class="row">
-            <app-form-disciplina escolaId={{escolaId}} value={{novaDisciplina}} (disciplinaChanged)="handleNovaDisciplinaChanged($event)"></app-form-disciplina>
+            <app-form-disciplina escolaId={{escolaId}} [value]="novaDisciplina" (disciplinaChanged)="handleNovaDisciplinaChanged($event)"></app-form-disciplina>
         </div>
         <div class="row">
             <button 

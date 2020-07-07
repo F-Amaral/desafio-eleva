@@ -10,9 +10,10 @@ import { ProfessoresComponent } from './pages/professores/professores.component'
 import { DisciplinasComponent } from './pages/disciplinas/disciplinas.component';
 import { TurmasComponent } from './pages/turmas/turmas.component';
 import { DetalhesTurmasComponent } from './pages/detalhes-turmas/detalhes-turmas.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo:'/escolas', pathMatch:'full', canActivate:[AuthGuard]},
+  {path: '', component: HomeComponent, pathMatch:'full'},
   {
     path: 'escolas',
     component: EscolasComponent,

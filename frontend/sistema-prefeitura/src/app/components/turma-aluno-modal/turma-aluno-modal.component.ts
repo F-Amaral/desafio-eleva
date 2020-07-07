@@ -16,7 +16,7 @@ export class TurmaAlunoModalComponent implements OnInit {
   public turma: Turma;
   public alunos: Aluno[];
   public alunosToInclude: string[] = [];
-  public novoAluno: Aluno;
+  public novoAluno: Aluno = new Aluno();
   escolaId: string;
 
   constructor(

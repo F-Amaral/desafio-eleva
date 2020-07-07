@@ -49,6 +49,7 @@ import { TurmaDisciplinaModalComponent } from './components/turma-disciplina-mod
 import { FormAlunoComponent } from './components/forms/form-aluno/form-aluno.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormDisciplinaComponent } from './components/forms/form-disciplina/form-disciplina.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { FormDisciplinaComponent } from './components/forms/form-disciplina/form
     TurmaDisciplinaModalComponent,
     FormAlunoComponent,
     FormDisciplinaComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
