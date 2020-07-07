@@ -14,6 +14,7 @@ export class ProfessorModalComponent implements OnInit {
   public professor: Professor;
   escolaId: string;
   public isAdd: boolean;
+  public buttonText: string;
 
   constructor(
     public dialogRef: MatDialogRef<ProfessorModalComponent>, 
@@ -24,6 +25,7 @@ export class ProfessorModalComponent implements OnInit {
       this.professor = data.professor ?? new Professor();
       this.isAdd = data.professor === undefined;
       this.escolaId = data.escolaId;
+      this.buttonText = this.isAdd ? "Adicionar" : "Atualizar";
     }
 
     ngOnInit(): void {
@@ -39,6 +41,11 @@ export class ProfessorModalComponent implements OnInit {
           this.professor = data;
           this.dialogRef.close();
         });
+      }else{
+        this.escolaService.updateProfessor(this.escolaId, this.professor).then((data) => {
+          this.professor = data;
+          this.dialogRef.close();
+        })
       }
     }
 

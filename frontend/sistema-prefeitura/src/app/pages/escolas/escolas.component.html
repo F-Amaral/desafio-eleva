@@ -2,7 +2,7 @@
     <h1 class="title">Escolas</h1>
     <div class="base-paper">
         <app-card>
-            <app-tabela-escolas></app-tabela-escolas>
+            <app-tabela-escolas (editarEscolaClicked)="onEdit($event)"></app-tabela-escolas>
         </app-card>
     </div>
     <app-botao-flutuante (requestedAdd)="onAdd()"></app-botao-flutuante>

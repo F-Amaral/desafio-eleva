@@ -19,6 +19,7 @@ export class TabelaDisciplinasComponent implements OnInit {
   @Input() public turmaId: string;
   @Input() public limit: number;
   @Output() deleteDisciplinaClicked = new EventEmitter<Disciplina>();
+  @Output() editarDisciplinaClicked = new EventEmitter<Disciplina>();
   dataSource: MatTableDataSource<Disciplina> = new MatTableDataSource<Disciplina>();
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -72,5 +73,9 @@ export class TabelaDisciplinasComponent implements OnInit {
 
   public detalhesDisciplina(disciplina: Disciplina) {
     this.router.navigate(['./disciplinas', disciplina.id])
+  }
+
+  public editarDisciplina(disciplina: Disciplina){
+    this.editarDisciplinaClicked.emit(disciplina);
   }
 }

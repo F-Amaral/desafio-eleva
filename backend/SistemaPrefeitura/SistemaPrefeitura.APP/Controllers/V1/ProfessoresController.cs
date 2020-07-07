@@ -51,10 +51,10 @@ namespace SistemaPrefeitura.APP.Controllers.V1
             return Created("api/v1/escolas/{escolaId}/professores", await _professorService.AddAsync(_professorDTOToProfessorMapper.Map(professor), escolaId));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> PutProfessor([FromBody] ProfessorDTO professor)
+        [HttpPut("{professorId}")]
+        public async Task<IActionResult> PutProfessor([FromBody] ProfessorDTO professor, [FromRoute] Guid professorId)
         {
-            return Created("api/v1/escolas/{escolaId}/professores", await _professorService.UpdateAsync(_professorDTOToProfessorMapper.Map(professor)));
+            return Created("api/v1/escolas/{escolaId}/professores", await _professorService.UpdateAsync(_professorDTOToProfessorMapper.Map(professor, professorId)));
         }
 
         [HttpDelete("{professorId}")]

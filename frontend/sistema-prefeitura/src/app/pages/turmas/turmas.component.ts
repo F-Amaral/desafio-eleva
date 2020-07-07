@@ -72,7 +72,7 @@ export class TurmasComponent implements OnInit {
       minHeight: '50%',
       minWidth: '50%',
       data: {
-        escola: turma,
+        turma: turma,
         title: "Atualizar turma",
         escolaId: this.escolaId
       }

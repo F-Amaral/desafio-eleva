@@ -64,10 +64,10 @@ namespace SistemaPrefeitura.APP.Controllers.V1
             return Created("api/v1/escolas/{escolaId}/turmas", await _turmaService.AddAsync(_turmaDTOToTurmaMapper.Map(turma), escolaId));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> PutTurma([FromBody] TurmaDTO turma)
+        [HttpPut("{turmaId}")]
+        public async Task<IActionResult> PutTurma([FromBody] TurmaDTO turma, [FromRoute] Guid turmaId)
         {
-            return Created("api/v1/escolas/{escolaId}/turmas", await _turmaService.UpdateAsync(_turmaDTOToTurmaMapper.Map(turma)));
+            return Created("api/v1/escolas/{escolaId}/turmas", await _turmaService.UpdateAsync(_turmaDTOToTurmaMapper.Map(turma, turmaId)));
         }
 
         [HttpDelete("{turmaId}")]

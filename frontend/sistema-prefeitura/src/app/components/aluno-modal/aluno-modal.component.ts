@@ -13,15 +13,17 @@ export class AlunoModalComponent implements OnInit {
   public aluno: Aluno;
   escolaId: string;
   public isAdd: boolean;
+  public buttonText: string;
 
   constructor(
     public dialogRef: MatDialogRef<AlunoModalComponent>, 
     private escolaService: EscolaService,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {
-      this.aluno = data.aluno ?? new Aluno();
+      this.aluno = data.aluno ? data.aluno : new Aluno();
       this.isAdd = data.aluno === undefined;
       this.escolaId = data.escolaId;
+      this.buttonText = this.isAdd ? "Adicionar" : "Atualizar";
     }
 
     ngOnInit(): void {
@@ -37,6 +39,11 @@ export class AlunoModalComponent implements OnInit {
           this.aluno = data;
           this.dialogRef.close();
         });
+      }else{
+        this.escolaService.updateAluno(this.escolaId, this.aluno).then((data) => {
+          this.aluno = data;
+          this.dialogRef.close();
+        })
       }
     }
 

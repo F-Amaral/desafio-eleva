@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Turma } from 'src/app/shared/models/Turma.model';
 import { Escola } from 'src/app/shared/models/Escola.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,6 +18,7 @@ export class TabelaTurmasComponent implements OnInit {
   public escola: Escola = new Escola();
   @Input() escolaId: string;
   @Input() limit: number;
+  @Output() editarTurmaClicked = new EventEmitter<Turma>();
   dataSource: MatTableDataSource<Turma> = new MatTableDataSource<Turma>();
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -58,4 +59,7 @@ export class TabelaTurmasComponent implements OnInit {
     this.router.navigate(['turmas', turma.id], {relativeTo: this.route.parent});
   }
 
+  public editarTurma(turma: Turma){
+    this.editarTurmaClicked.emit(turma);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Escola } from 'src/app/shared/models/Escola.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -16,6 +16,8 @@ export class TabelaEscolasComponent implements OnInit {
   dataSource: MatTableDataSource<Escola> = new MatTableDataSource<Escola>();
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @Output() editarEscolaClicked = new EventEmitter<Escola>();
+
   displayedColumns: string[] = ['nome', 'descricao','tooltip'];
 
   constructor(private escolaService: EscolaService,
@@ -46,6 +48,9 @@ export class TabelaEscolasComponent implements OnInit {
     this.router.navigate(['/escolas/', escola.id ])
   }
 
+  public editarEscola(escola: Escola){
+    this.editarEscolaClicked.emit(escola);
+  }
 
 
 }

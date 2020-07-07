@@ -15,7 +15,8 @@ namespace SistemaPrefeitura.APP.Mappers.TurmaMappers
             return new Turma()
             {
                 Nome = entry.Nome,
-                Ano = entry.Ano
+                Ano = entry.Ano,
+                EscolaId = entry.EscolaId
             };
         }
 

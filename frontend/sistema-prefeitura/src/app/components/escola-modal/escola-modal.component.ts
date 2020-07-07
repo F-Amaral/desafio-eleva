@@ -12,6 +12,7 @@ export class EscolaModalComponent implements OnInit {
 
   public escola: Escola;
   public isAdd: boolean;
+  public buttonText: string;
 
   constructor(
     public dialogRef: MatDialogRef<EscolaModalComponent>, 
@@ -20,6 +21,7 @@ export class EscolaModalComponent implements OnInit {
     ) {
       this.escola = data.escola ?? new Escola();
       this.isAdd = data.escola === undefined;
+      this.buttonText = this.isAdd ? "Adicionar" : "Atualizar";
     }
 
     ngOnInit(): void {
@@ -33,7 +35,11 @@ export class EscolaModalComponent implements OnInit {
       if(this.isAdd){
         this.escolaService.addEscola(this.escola).then((data) => {
           this.escola = data;
-          console.log(this.escola);
+          this.dialogRef.close();
+        });
+      }else{
+        this.escolaService.updateEscola(this.escola).then((data) => {
+          this.escola = data;
           this.dialogRef.close();
         });
       }

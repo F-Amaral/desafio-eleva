@@ -21,6 +21,7 @@ export class TabelaAlunosComponent implements OnInit {
   @Input() limit: number;
 
   @Output() deleteAlunoClicked = new EventEmitter<Aluno>();
+  @Output() editarAlunoClicked = new EventEmitter<Aluno>();
 
   dataSource: MatTableDataSource<Aluno> = new MatTableDataSource<Aluno>();
 
@@ -75,6 +76,10 @@ export class TabelaAlunosComponent implements OnInit {
   
   public detalhesAluno(aluno: Aluno){
     this.router.navigate(['./alunos', aluno.id ])
+  }
+
+  public editarAluno(aluno: Aluno){
+    this.editarAlunoClicked.emit(aluno);
   }
 
 

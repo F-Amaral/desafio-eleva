@@ -14,12 +14,12 @@ export class FormAlunoComponent implements OnInit {
   @Output() alunoChanged = new EventEmitter<Aluno>();
 
   constructor() { 
-    if(this.value)
-      this.aluno = this.value;
   }
 
   ngOnInit(): void {
+    this.aluno = this.value;
   }
+
 
   public handleNome(nome: string){
     this.aluno.nome = nome;

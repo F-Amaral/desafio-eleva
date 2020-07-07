@@ -15,7 +15,8 @@ namespace SistemaPrefeitura.APP.Mappers.DisciplinaMappers
             return new Disciplina()
             {
                 Nome = entry.Nome,
-                ProfessorId = entry.ProfessorId
+                ProfessorId = entry.ProfessorId,
+                EscolaId = entry.EscolaId
             };
         }
 

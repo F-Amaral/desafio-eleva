@@ -69,5 +69,4 @@ export class AlunosComponent implements OnInit {
       this.tabelaAlunos.getAlunos();
     })
   }
-
 }

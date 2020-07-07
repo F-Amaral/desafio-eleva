@@ -2,7 +2,7 @@
     <h1 class="title">{{escola.nome}} - Disciplinas</h1>
     <div class="base-paper">
         <app-card>
-            <app-tabela-disciplinas escolaId={{escolaId}}></app-tabela-disciplinas>
+            <app-tabela-disciplinas (editarDisciplinaClicked)="onEdit($event)" escolaId={{escolaId}}></app-tabela-disciplinas>
         </app-card>    
     </div>
     <app-botao-flutuante (requestedAdd)="onAdd()"></app-botao-flutuante>

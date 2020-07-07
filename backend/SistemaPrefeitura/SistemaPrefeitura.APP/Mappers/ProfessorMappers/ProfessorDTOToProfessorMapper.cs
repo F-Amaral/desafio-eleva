@@ -16,6 +16,7 @@ namespace SistemaPrefeitura.APP.Mappers.ProfessorMappers
             {
                 Nome = entry.Nome,
                 Sobrenome = entry.Sobrenome,
+                EscolaId = entry.EscolaId
             };
         }
 

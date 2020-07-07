@@ -14,11 +14,15 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" direction="col">
-                    <button mat-menu-item (click)="detalhesAluno(element)">
+                    <button mat-menu-item (click)="detalhesProfessor(element)">
                         <mat-icon>info</mat-icon>
                         <span>Detalhes</span>
                     </button>
-                    <button mat-menu-item (click)="deleteAluno(element)">
+                    <button mat-menu-item (click)="editarProfessor(element)">
+                        <mat-icon>edit</mat-icon>
+                        <span>Editar</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteProfessor(element)">
                         <mat-icon>delete</mat-icon>
                         <span>Excluir</span>
                     </button>

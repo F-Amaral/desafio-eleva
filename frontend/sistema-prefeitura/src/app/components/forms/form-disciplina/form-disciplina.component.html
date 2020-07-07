@@ -11,8 +11,8 @@
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Professor da disciplina</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let professor of professores" [value]="professor"
+            <mat-select [value]="disciplina.professor.id">
+                <mat-option *ngFor="let professor of professores" [value]="professor.id"
                 (onSelectionChange)="handleProfessor(professor)">
                   {{professor.nome}} {{professor.sobrenome}}
                 </mat-option>

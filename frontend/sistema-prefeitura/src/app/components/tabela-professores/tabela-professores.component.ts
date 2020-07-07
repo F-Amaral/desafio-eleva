@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Professor } from 'src/app/shared/models/Professor.model';
 import { Escola } from 'src/app/shared/models/Escola.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,6 +17,9 @@ export class TabelaProfessoresComponent implements OnInit {
   public escola: Escola = new Escola();
   @Input() escolaId: string;
   @Input() limit: number;
+  
+  @Output() editarProfessorClicked = new EventEmitter<Professor>();
+
   dataSource: MatTableDataSource<Professor> = new MatTableDataSource<Professor>();
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -47,14 +50,18 @@ export class TabelaProfessoresComponent implements OnInit {
     });
   }
 
-  public deleteAluno(professor: Professor){
+  public deleteProfessor(professor: Professor){
     this.escolaService.deleteProfessor(this.escolaId,professor.id).then(() => {
       this.getProfessores();
 
     })
   }
   
-  public detalhesAluno(professor: Professor){
+  public detalhesProfessor(professor: Professor){
     this.router.navigate(['./professores', professor.id ])
+  }
+
+  public editarProfessor(professor: Professor){
+    this.editarProfessorClicked.emit(professor);
   }
 }

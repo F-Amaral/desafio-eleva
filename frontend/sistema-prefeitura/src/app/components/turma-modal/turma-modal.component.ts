@@ -13,15 +13,17 @@ export class TurmaModalComponent implements OnInit {
   public turma: Turma;
   escolaId: string;
   public isAdd: boolean;
+  public buttonText: string;
 
   constructor(
     public dialogRef: MatDialogRef<TurmaModalComponent>, 
     private escolaService: EscolaService,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {
-      this.turma = data.turma ?? new Turma();
+      this.turma = data.turma ? data.turma : new Turma();
       this.isAdd = data.turma === undefined;
       this.escolaId = data.escolaId;
+      this.buttonText = this.isAdd ? "Adicionar" : "Atualizar";
     }
 
     ngOnInit(): void {
@@ -37,6 +39,11 @@ export class TurmaModalComponent implements OnInit {
           this.turma = data;
           this.dialogRef.close();
         });
+      }else{
+        this.escolaService.updateTurma(this.escolaId, this.turma).then((data) => { 
+          this.turma = data;
+          this.dialogRef.close();
+        })
       }
     }
 

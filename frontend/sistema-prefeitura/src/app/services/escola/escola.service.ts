@@ -14,6 +14,22 @@ import { LoadingService } from '../loading/loading.service';
   providedIn: 'root'
 })
 export class EscolaService {
+  public async updateTurma(escolaId: string, turma: Turma) {
+    this.loadingService.show();
+    return await this.http.put<Turma>(`api/v1/escolas/${escolaId}/turmas/${turma.id}`, turma).toPromise().finally(() => this.loadingService.hide())
+  }
+  public async updateProfessor(escolaId: string, professor: Professor) {
+    this.loadingService.show();
+    return await this.http.put<Professor>(`api/v1/escolas/${escolaId}/professores/${professor.id}`, professor).toPromise().finally(() => this.loadingService.hide())
+  }
+  public async updateAluno(escolaId: string, aluno: Aluno) {
+    this.loadingService.show();
+    return await this.http.put<Aluno>(`api/v1/escolas/${escolaId}/alunos/${aluno.id}`, aluno).toPromise().finally(() => this.loadingService.hide())
+  }
+  public async updateDisciplina(escolaId: string, disciplina: Disciplina) {
+    this.loadingService.show();
+    return await this.http.put<Disciplina>(`api/v1/escolas/${escolaId}/disciplinas/${disciplina.id}`, disciplina).toPromise().finally(() => this.loadingService.hide())
+  }
   public async removeDisciplinaFromTurma(escolaId: string, turmaId: string, disciplinaId: string) {
     this.loadingService.show();
     await this.http.delete(`/api/v1/escolas/${escolaId}/turmas/${turmaId}/disciplinas/${disciplinaId}`).toPromise().finally(() => this.loadingService.hide())

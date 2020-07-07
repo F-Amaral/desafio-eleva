@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Professor } from 'src/app/shared/models/Professor.model';
 import { EscolaService } from 'src/app/services/escola/escola.service';
 import { Disciplina } from 'src/app/shared/models/Disciplina.model';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-form-disciplina',
@@ -19,11 +20,10 @@ export class FormDisciplinaComponent implements OnInit {
   @Output() disciplinaChanged = new EventEmitter<Disciplina>();
 
   constructor(private escolaService:EscolaService) {
-    if(this.value)
-    this.disciplina = this.value;
   }
 
   ngOnInit(): void {
+    this.disciplina = this.value;
     this.getProfessores();
   }
 
