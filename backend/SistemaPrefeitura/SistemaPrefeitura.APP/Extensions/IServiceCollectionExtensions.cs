@@ -17,7 +17,6 @@ using SistemaPrefeitura.Application.Services;
 using SistemaPrefeitura.Domain.DataContracts;
 using SistemaPrefeitura.Domain.SQL.DataContext;
 using SistemaPrefeitura.Domain.SQL.Repositories;
-using SistemaPrefeitura.Infra.Common.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
