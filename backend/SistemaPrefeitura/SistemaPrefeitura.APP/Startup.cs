@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using SistemaPrefeitura.APP.Extensions;
 
 namespace SistemaPrefeitura.APP
@@ -43,12 +44,28 @@ namespace SistemaPrefeitura.APP
                 options.Audience = "https://localhost:44386/api/v1/";
             });
 
+            services.AddSwagger();
+
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sistema Prefeitura API - V1");
+                c.OAuthClientId("kluiVO6od2f8erLLhOODRm49C3x7zGRu");
+                c.OAuthAdditionalQueryStringParams(new Dictionary<string, string>()
+                {
+                    {"audience",@"https://localhost:44386/api/v1/" }
+                });
+            });
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

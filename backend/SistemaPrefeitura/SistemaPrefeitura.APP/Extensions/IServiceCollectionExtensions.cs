@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Interfaces;
+using Microsoft.OpenApi.Models;
 using SistemaPrefeitura.APP.Mappers.AlunoMappers;
 using SistemaPrefeitura.APP.Mappers.DisciplinaMappers;
 using SistemaPrefeitura.APP.Mappers.EscolaMappers;
@@ -13,6 +17,8 @@ using SistemaPrefeitura.Application.Services;
 using SistemaPrefeitura.Domain.DataContracts;
 using SistemaPrefeitura.Domain.SQL.DataContext;
 using SistemaPrefeitura.Domain.SQL.Repositories;
+using SistemaPrefeitura.Infra.Common.Filters;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,5 +85,24 @@ namespace SistemaPrefeitura.APP.Extensions
             return services;
         }
 
+        public static IServiceCollection AddSwagger(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Sistema Prefeitura API", Version = "v1" });
+                options.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Scheme = "bearer"
+                });
+                options.OperationFilter<AuthenticationRequirementsOperationFilter>();
+            });
+
+            return services;
+        }
+
+       
     }
 }
