@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SistemaPrefeitura.Application\SistemaPrefeitura.Application.csproj" />
     <ProjectReference Include="..\SistemaPrefeitura.Domain.SQL\SistemaPrefeitura.Domain.SQL.csproj" />
+    <ProjectReference Include="..\SistemaPrefeitura.Infra.Common\SistemaPrefeitura.Infra.Common.csproj" />
   </ItemGroup>
 
 

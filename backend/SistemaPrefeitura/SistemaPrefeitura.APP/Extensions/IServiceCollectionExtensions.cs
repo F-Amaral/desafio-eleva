@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
@@ -17,6 +20,7 @@ using SistemaPrefeitura.Application.Services;
 using SistemaPrefeitura.Domain.DataContracts;
 using SistemaPrefeitura.Domain.SQL.DataContext;
 using SistemaPrefeitura.Domain.SQL.Repositories;
+using SistemaPrefeitura.Infra.Common.Configurations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
@@ -27,13 +31,6 @@ namespace SistemaPrefeitura.APP.Extensions
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddConfigurations(this IServiceCollection services, IConfiguration configuration)
-        {
-
-
-            return services;
-        }
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IEscolaService, EscolaService>();
@@ -102,6 +99,19 @@ namespace SistemaPrefeitura.APP.Extensions
             return services;
         }
 
-       
+        public static IServiceCollection AddOauthProvider(this IServiceCollection services, Auth0Configurations configurations)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = configurations.Authority;
+                options.Audience = configurations.Audience;
+            });
+
+            return services;
+        }
     }
 }
