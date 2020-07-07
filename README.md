@@ -38,4 +38,4 @@ Garanta que estas ferramentas estão presentes, e na versão correta:
 ##  Utilizando o sistema:
 - A documentação da api pode ser encontrada no endpoint /swagger/index.html
 - Ao executar o painel, será necessário criar uma conta no provedor de identidade da aplicação, basta se registrar com um email e criar uma senha. Você deverá ser redirecionado para a pagina de escolas.
-- Para executar as chamadas de api no swagger é necessário ter um token. Esse token pode ser gerado pelo Postman ou Insomnia, criando uma requisição oauth2 do tipo Implicit 
+- Para executar as chamadas de api no swagger é necessário ter um token. Esse token pode ser gerado com algum cliente REST ( como o [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/) e [Postwoman](https://postwoman.io/) ).
