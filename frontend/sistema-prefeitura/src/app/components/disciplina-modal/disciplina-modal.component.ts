@@ -11,7 +11,7 @@ import { Professor } from 'src/app/shared/models/Professor.model';
 })
 export class DisciplinaModalComponent implements OnInit {
 
-  public disciplina: Disciplina;
+  public disciplina: Disciplina = new Disciplina();
   public escolaId: string;
   public isAdd: boolean;
   public buttonText: string;
@@ -25,6 +25,7 @@ export class DisciplinaModalComponent implements OnInit {
       this.isAdd = data.disciplina === undefined;
       this.escolaId = data.escolaId;
       this.buttonText = this.isAdd ? "Adicionar" : "Atualizar";
+      this.disciplina.professor = new Professor();
     }
 
     ngOnInit(): void {
