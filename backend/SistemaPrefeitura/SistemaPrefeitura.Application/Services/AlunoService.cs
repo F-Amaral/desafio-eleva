@@ -25,5 +25,10 @@ namespace SistemaPrefeitura.Application.Services
             aluno.EscolaId = escolaId;
             return await AddAsync(aluno);
         }
+
+        public Task<IEnumerable<Aluno>> GetAllByTurmaIdAsync(Guid turmaId)
+        {
+            return _repository.GetAllByTurmaIdAsync(turmaId);
+        }
     }
 }

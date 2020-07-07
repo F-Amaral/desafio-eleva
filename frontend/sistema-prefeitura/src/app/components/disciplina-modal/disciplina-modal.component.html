@@ -1,0 +1,11 @@
+<ng-container layout="row">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <mat-divider></mat-divider>
+    <div mat-dialog-content class="disciplinaModalContainer">
+        <app-form-disciplina (disciplinaChanged)="handleDisciplinaChanged($event)"></app-form-disciplina>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" cdkFocusInitial>Adicionar</button>
+      </div>
+</ng-container>

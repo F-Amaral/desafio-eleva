@@ -12,5 +12,7 @@ namespace SistemaPrefeitura.Domain.Models
         public DateTime DataNascimento { get; set; }
         public Guid EscolaId { get; set; }
         public virtual Escola Escola { get; set; }
+        public Guid? TurmaId { get; set; }
+        public virtual Turma Turma { get; set; }
     }
 }

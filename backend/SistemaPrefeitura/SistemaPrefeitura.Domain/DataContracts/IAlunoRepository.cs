@@ -10,5 +10,6 @@ namespace SistemaPrefeitura.Domain.DataContracts
     public interface IAlunoRepository : IBaseRepository<Aluno>
     {
         Task<IEnumerable<Aluno>> GetAllAsync(Guid escolaId);
+        Task<IEnumerable<Aluno>> GetAllByTurmaIdAsync(Guid turmaId);
     }
 }

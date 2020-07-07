@@ -1,13 +1,26 @@
-<ng-container>
+<ng-container *ngIf="!shouldLoadChildren">
     <div class="title">
         <h1>{{escola.nome}}</h1>
     </div>
+    <div class="base-container">
         <div class="row">
-            <app-alunos></app-alunos>
-            <app-professores></app-professores>
+            <app-card title="Alunos" detalhesText="Veja todos" (detailsClicked)="detalhesAlunos()">
+                <app-tabela-alunos limit="3" escolaId={{escolaId}}></app-tabela-alunos>
+            </app-card>
+            <app-card title="Professores" detalhesText="Veja todos" (detailsClicked)="detalhesProfessores()">
+                <app-tabela-professores limit="3" escolaId={{escolaId}}></app-tabela-professores>
+            </app-card>
         </div>
+    </div>
+    <div class="base-container">
         <div class="row">
-            <app-disciplinas></app-disciplinas>
-            <app-turmas></app-turmas>
+            <app-card title="Disciplinas" detalhesText="Veja todas" (detailsClicked)="detalhesDisciplinas()">
+                <app-tabela-disciplinas limit="3" escolaId={{escolaId}}></app-tabela-disciplinas>
+            </app-card>
+            <app-card title="Turmas" detalhesText="Veja todas" (detailsClicked)="detalhesTurmas()">
+                <app-tabela-turmas limit="3" escolaId={{escolaId}}></app-tabela-turmas>
+            </app-card>
         </div>
+    </div>
 </ng-container>
+<router-outlet *ngIf="shouldLoadChildren"></router-outlet>

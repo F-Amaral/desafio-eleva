@@ -21,5 +21,10 @@ namespace SistemaPrefeitura.Domain.SQL.Repositories
         {
             return await DbSet.Where(x => x.EscolaId == escolaId).ToListAsync();
         }
+
+        public async Task<IEnumerable<Aluno>> GetAllByTurmaIdAsync(Guid turmaId)
+        {
+            return await DbSet.Where(x => x.TurmaId == turmaId).ToListAsync();
+        }
     }
 }

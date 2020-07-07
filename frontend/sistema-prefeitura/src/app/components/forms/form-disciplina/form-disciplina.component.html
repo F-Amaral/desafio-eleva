@@ -1,0 +1,22 @@
+<div class="formContainer">
+    <form>
+        <mat-form-field appearance="standard">
+            <mat-label>Nome da disciplina</mat-label>
+            <input 
+                matInput 
+                type="text"
+                placeholder="Ex: História" 
+                value={{disciplina.nome}}
+                (change)="handleNome($event.target.value)">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Professor da disciplina</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let professor of professores" [value]="professor"
+                (onSelectionChange)="handleProfessor(professor)">
+                  {{professor.nome}} {{professor.sobrenome}}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+    </form>
+</div>

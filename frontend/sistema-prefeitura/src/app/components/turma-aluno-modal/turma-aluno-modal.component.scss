@@ -1,0 +1,14 @@
+.ModalContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex:1;
+    align-items: flex-end;
+}
+
+.rightButton { 
+    margin-bottom: 10px;
+}

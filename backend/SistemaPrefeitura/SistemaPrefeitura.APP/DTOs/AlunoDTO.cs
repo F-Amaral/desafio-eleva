@@ -12,5 +12,6 @@ namespace SistemaPrefeitura.APP.DTOs
         public string Sobrenome { get; set; }
         public DateTime DataNascimento { get; set; }
         public Guid EscolaId { get; set; }
+        public Guid? TurmaId { get; set; }
     }
 }

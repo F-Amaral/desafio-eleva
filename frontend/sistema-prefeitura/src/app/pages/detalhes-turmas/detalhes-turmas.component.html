@@ -1,0 +1,15 @@
+<ng-container>
+    <div class="title">
+        <h1>{{turma.escola.nome}} - {{turma.nome}}</h1>
+    </div>
+    <div class="base-container">
+        <div class="row">
+            <app-card title="Disciplinas cadastradas" detalhesText="Adicionar disciplina" (detailsClicked)="adicionarDisciplina()">
+                <app-tabela-disciplinas (deleteDisciplinaClicked)="handleDeleteDisciplina($event)" escolaId={{escolaId}} turmaId={{turmaId}}></app-tabela-disciplinas>
+            </app-card>
+            <app-card title="Alunos cadastrados" detalhesText="Adicionar aluno" (detailsClicked)="adicionarAluno()">
+                <app-tabela-alunos (deleteAlunoClicked)="handleDeleteAluno($event)" escolaId={{escolaId}} turmaId={{turmaId}}></app-tabela-alunos>
+            </app-card>
+        </div>
+    </div>
+</ng-container>

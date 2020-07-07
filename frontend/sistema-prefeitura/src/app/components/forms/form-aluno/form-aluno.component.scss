@@ -1,0 +1,15 @@
+.formContainer .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.formContainer .mat-form-field {
+    width: 220px;
+  }
+  
+  .formContainer form {
+    margin-bottom: 20px;
+  }
+  
+  .formContainer form > * {
+    margin: 5px 0;
+  }

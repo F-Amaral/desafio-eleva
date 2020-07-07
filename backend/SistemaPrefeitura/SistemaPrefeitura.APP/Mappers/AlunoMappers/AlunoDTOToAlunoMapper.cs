@@ -16,7 +16,8 @@ namespace SistemaPrefeitura.APP.Mappers.AlunoMappers
             {
                 Nome = entry.Nome,
                 Sobrenome = entry.Sobrenome,
-                DataNascimento = entry.DataNascimento
+                DataNascimento = entry.DataNascimento,
+                TurmaId = entry.TurmaId
             };
         }
 

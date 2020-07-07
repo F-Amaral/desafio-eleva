@@ -1,0 +1,22 @@
+<div class="formContainer">
+    <form>
+        <mat-form-field appearance="standard">
+            <mat-label>Nome do aluno</mat-label>
+            <input 
+                matInput 
+                type="text"
+                placeholder="João" 
+                value={{aluno.nome}}
+                (change)="handleNome($event.target.value)">
+        </mat-form-field>
+    
+        <mat-form-field appearance="standard">
+            <mat-label>Sobrenome do aluno</mat-label>
+            <input 
+                matInput 
+                placeholder="Da silva" 
+                value={{aluno.sobrenome}}
+                (change)="handleSobrenome($event.target.value)">
+        </mat-form-field>
+    </form>
+</div>

@@ -11,6 +11,6 @@ namespace SistemaPrefeitura.Application.Interfaces
     {
         Task<Aluno> AddAsync(Aluno aluno, Guid escolaId);
         Task<IEnumerable<Aluno>> GetAllAsync(Guid escolaId);
-
+        Task<IEnumerable<Aluno>> GetAllByTurmaIdAsync(Guid turmaId);
     }
 }

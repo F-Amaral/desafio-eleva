@@ -1,0 +1,22 @@
+div { 
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    
+}
+
+.disciplinaModalContainer .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.disciplinaModalContainer .mat-form-field {
+    width: 220px;
+  }
+  
+  .disciplinaModalContainer form {
+    margin-bottom: 20px;
+  }
+  
+  .disciplinaModalContainer form > * {
+    margin: 5px 0;
+  }

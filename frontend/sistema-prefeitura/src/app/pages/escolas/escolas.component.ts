@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Escola } from 'src/app/shared/models/Escola.model';
 import { EscolaService } from 'src/app/services/escola/escola.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Event, RouterEvent } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { EscolaModalComponent } from './components/escola-modal/escola-modal.component';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { EscolaModalComponent } from 'src/app/components/escola-modal/escola-modal.component';
+import { TabelaEscolasComponent } from 'src/app/components/tabela-escolas/tabela-escolas.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-escolas',
@@ -14,40 +16,25 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class EscolasComponent implements OnInit {
   
-  public escolas: Escola[];
   public adicionarEscolaModal: boolean = false;
   public dialogRef: MatDialogRef<EscolaModalComponent>;
-  dataSource: MatTableDataSource<Escola>;
+  public shouldLoadChildren: boolean = false;
+  public escolaId: string;
 
-  displayedColumns: string[] = ['nome', 'descricao','tooltip'];
+  @ViewChild(TabelaEscolasComponent) tabelaEscolas: TabelaEscolasComponent;
 
-  constructor(private escolaService: EscolaService, private router: Router, public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private router: Router) {
+    this.shouldLoadChildren = !router.url.endsWith('/escolas');
   }
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit(): void {
-    this.getEscolas();
-  }
-
-  public getEscolas(){
-    this.escolaService.getEscolas().then((data) => {
-      this.escolas = data;
-      this.dataSource = new MatTableDataSource(this.escolas);
-      this.dataSource.sort = this.sort;
-    });
-  }
-
-  public deleteEscola(escola: Escola){
-    console.log(escola)
-    this.escolaService.deleteEscola(escola.id).then(() => {
-      this.getEscolas();
-
+    this.router.events.pipe(
+      filter((e: Event): e is RouterEvent => e instanceof RouterEvent)
+    ).subscribe((e:RouterEvent) => {
+      this.shouldLoadChildren = !e.url.endsWith("/escolas");
     })
-  }
-  
-  public detalhesEscola(escola: Escola){
-    this.router.navigate(['/escolas/', escola.id ])
   }
 
   public onAdd(){
@@ -61,7 +48,7 @@ export class EscolasComponent implements OnInit {
       }
     });
     this.dialogRef.afterClosed().subscribe(result => {
-      this.getEscolas();
+      this.tabelaEscolas.getEscolas();
     })
   }
 
@@ -77,7 +64,7 @@ export class EscolasComponent implements OnInit {
       }
     })
     this.dialogRef.afterClosed().subscribe(result => {
-      this.getEscolas();
+      this.tabelaEscolas.getEscolas();
     })
   }
 }

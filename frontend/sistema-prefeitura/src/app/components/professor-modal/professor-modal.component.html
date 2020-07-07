@@ -1,0 +1,30 @@
+<ng-container layout="row">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <mat-divider></mat-divider>
+    <div mat-dialog-content class="professorModalContainer">
+        <form>
+            <mat-form-field appearance="standard">
+                <mat-label>Nome do professor</mat-label>
+                <input 
+                    matInput 
+                    type="text"
+                    placeholder="João" 
+                    value={{professor.nome}}
+                    (change)="handleNome($event.target.value)">
+            </mat-form-field>
+    
+            <mat-form-field appearance="standard">
+                <mat-label>Sobrenome do professor</mat-label>
+                <input 
+                    matInput 
+                    placeholder="Da silva" 
+                    value={{professor.sobrenome}}
+                    (change)="handleSobrenome($event.target.value)">
+            </mat-form-field>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" cdkFocusInitial>Adicionar</button>
+      </div>
+</ng-container>

@@ -1,4 +1,5 @@
-﻿using SistemaPrefeitura.Domain.DataContracts.Shared;
+﻿using SistemaPrefeitura.Application.Interfaces.Shared;
+using SistemaPrefeitura.Domain.DataContracts.Shared;
 using SistemaPrefeitura.Domain.Models.Shared;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemaPrefeitura.Application.Services.Shared
 {
-    public class BaseService<TEntity, TRepository>
+    public class BaseService<TEntity, TRepository> : IBaseService<TEntity>
         where TEntity: Entity
         where TRepository: IBaseRepository<TEntity>
     {
@@ -26,6 +27,18 @@ namespace SistemaPrefeitura.Application.Services.Shared
             await _repository.AddAsync(entity);
             await _repository.SaveChangesAsync();
             return entity;
+        }
+
+        public async Task<IEnumerable<TEntity>> AddCollectionAsync(IEnumerable<TEntity> entities)
+        {
+            foreach(var entity in entities)
+            {
+                entity.Id = Guid.NewGuid();
+                entity.CreatedAt = DateTime.Now;
+            }
+            await _repository.AddCollectionAsync(entities);
+            await _repository.SaveChangesAsync();
+            return entities;
         }
 
         public async Task DeleteByIdAsync(Guid id)
@@ -52,5 +65,11 @@ namespace SistemaPrefeitura.Application.Services.Shared
             return entity;
         }
 
+        public async Task<IEnumerable<TEntity>> UpdateCollectionAsync(IEnumerable<TEntity> entities)
+        {
+            await _repository.UpdateCollectionAsync(entities);
+            await _repository.SaveChangesAsync();
+            return entities;
+        }
     }
 }

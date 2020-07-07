@@ -1,0 +1,37 @@
+<ng-container layout="row">
+    <h1 mat-dialog-title>{{data.title}}</h1>
+    <mat-divider></mat-divider>
+    <h2>Escolha um ou mais alunos</h2>
+    <div mat-dialog-content class="ModalContainer">
+        <form>
+            <mat-form-field appearance="standard">
+                <mat-label>Alunos</mat-label>
+                <mat-select multiple>
+                    <mat-option *ngFor="let aluno of alunos" [value]="aluno" (onSelectionChange)="handleAlunos($event)">
+                        {{aluno.nome}} {{aluno.sobrenome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <h2>Ou</h2>
+        <mat-divider></mat-divider>
+        <h2>Cadastre um novo aluno</h2>
+        <div class="row">
+            <app-form-aluno value={{novoAluno}} (alunoChanged)="handleNovoAlunoChanged($event)"></app-form-aluno>
+        </div>
+        <div class="row">
+            <button 
+                mat-button 
+                color="primary"
+                (click)="handleNovoAlunoSubmit()"
+                class="rightButton" 
+                >Cadastrar aluno</button>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div mat-dialog-actions align="end">
+        <button mat-button (click)="onNoClick()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" cdkFocusInitial>Adicionar</button>
+    </div>
+</ng-container>

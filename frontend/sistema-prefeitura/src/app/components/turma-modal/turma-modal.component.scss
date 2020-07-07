@@ -1,0 +1,23 @@
+div { 
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    
+}
+
+
+.turmaModalContainer .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.turmaModalContainer .mat-form-field {
+    width: 220px;
+  }
+  
+  .turmaModalContainer form {
+    margin-bottom: 20px;
+  }
+  
+  .turmaModalContainer form > * {
+    margin: 5px 0;
+  }

@@ -1,1 +1,9 @@
-<p>alunos works!</p>
+<ng-container layout="row" layout.sm="col">
+    <h1 class="title">{{escola.nome}} - Alunos</h1>
+    <div class="base-paper">
+        <app-card>
+            <app-tabela-alunos escolaId={{escolaId}}></app-tabela-alunos>
+        </app-card>    
+    </div>
+    <app-botao-flutuante (requestedAdd)="onAdd()"></app-botao-flutuante>
+</ng-container>

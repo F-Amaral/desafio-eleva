@@ -5,7 +5,9 @@ using SistemaPrefeitura.APP.Mappers.AlunoMappers;
 using SistemaPrefeitura.APP.Mappers.DisciplinaMappers;
 using SistemaPrefeitura.APP.Mappers.EscolaMappers;
 using SistemaPrefeitura.APP.Mappers.ProfessorMappers;
+using SistemaPrefeitura.APP.Mappers.TurmaDisciplinaMappers;
 using SistemaPrefeitura.APP.Mappers.TurmaMappers;
+using SistemaPrefeitura.APP.Mappers.TurmasMappers;
 using SistemaPrefeitura.Application.Interfaces;
 using SistemaPrefeitura.Application.Services;
 using SistemaPrefeitura.Domain.DataContracts;
@@ -59,8 +61,10 @@ namespace SistemaPrefeitura.APP.Extensions
             services.AddScoped<ProfessorToProfessorDTOMapper>();
             services.AddScoped<TurmaDTOToTurmaMapper>();
             services.AddScoped<TurmaToTurmaDTOMapper>();
+            services.AddScoped<TurmaToTurmaCompletoDTOMapper>();
             services.AddScoped<DisciplinaDTOToDisciplinaMapper>();
             services.AddScoped<DisciplinaToDisciplinaDTOMapper>();
+            services.AddScoped<TurmaDisciplinaToDisciplinaDTOMapper>();
 
 
             return services;

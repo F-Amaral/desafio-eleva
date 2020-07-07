@@ -6,6 +6,7 @@ export class Disciplina implements Deserializable{
     nome: string;
     descricao: string;
     createdAt: Date;
+    professorId: string;
     professor: Professor;
 
     deserialize(input: any): this {

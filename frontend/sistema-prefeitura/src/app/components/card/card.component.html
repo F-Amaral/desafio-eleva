@@ -1,0 +1,13 @@
+<mat-card class="base-container mat-elevation-z8">
+    <mat-card-header *ngIf="title">
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <ng-content></ng-content>
+    </mat-card-content>
+    <mat-card-actions align="start" >
+        <button color="primary" mat-button (click)="details()" *ngIf="detalhesText">
+            {{detalhesText}}
+        </button>
+    </mat-card-actions>
+</mat-card>

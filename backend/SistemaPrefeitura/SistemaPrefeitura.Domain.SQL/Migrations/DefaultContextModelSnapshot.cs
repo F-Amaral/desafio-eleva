@@ -74,6 +74,8 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
 
                     b.HasIndex("EscolaId");
 
+                    b.HasIndex("ProfessorId");
+
                     b.ToTable("Disciplinas");
                 });
 
@@ -173,29 +175,35 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
 
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Aluno", b =>
                 {
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", "Escola")
                         .WithMany("Alunos")
                         .HasForeignKey("EscolaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Turma", null)
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Turma", "Turma")
                         .WithMany("Alunos")
                         .HasForeignKey("TurmaId");
                 });
 
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Disciplina", b =>
                 {
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", "Escola")
                         .WithMany("Disciplinas")
                         .HasForeignKey("EscolaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Professor", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Professor", b =>
                 {
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", "Escola")
                         .WithMany("Professores")
                         .HasForeignKey("EscolaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -204,7 +212,7 @@ namespace SistemaPrefeitura.Domain.SQL.Migrations
 
             modelBuilder.Entity("SistemaPrefeitura.Domain.Models.Turma", b =>
                 {
-                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", null)
+                    b.HasOne("SistemaPrefeitura.Domain.Models.Escola", "Escola")
                         .WithMany("Turmas")
                         .HasForeignKey("EscolaId")
                         .OnDelete(DeleteBehavior.Cascade)

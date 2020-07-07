@@ -13,5 +13,11 @@ namespace SistemaPrefeitura.Application.Interfaces
     {
         Task<Turma> AddAsync(Turma turma, Guid escolaId);
         Task<IEnumerable<Turma>> GetAllAsync(Guid escolaId);
+        Task<IEnumerable<Disciplina>> AddDisciplinasAsync(Guid turmaId, IEnumerable<Guid> disciplinasIds);
+        Task<Turma> AddAlunosAsync(Guid turmaId, IEnumerable<Guid> alunosIds);
+        Task<IEnumerable<Disciplina>> GetDisciplinas(Guid turmaId);
+        Task<IEnumerable<Aluno>> GetAlunos(Guid turmaId);
+        Task RemoveAluno(Guid turmaId, Guid alunoId);
+        Task RemoveDisciplina(Guid turmaId, Guid disciplinaId);
     }
 }

@@ -1,0 +1,10 @@
+<ng-container layout="row" layout.sm="col"  *ngIf="!shouldLoadChildren">
+    <h1 class="title">{{escola.nome}} - Turmas</h1>
+    <div class="base-paper">
+        <app-card>
+            <app-tabela-turmas escolaId={{escolaId}}></app-tabela-turmas>
+        </app-card>
+    </div>
+    <app-botao-flutuante (requestedAdd)="onAdd()"></app-botao-flutuante>
+</ng-container>
+<router-outlet  *ngIf="shouldLoadChildren"></router-outlet>
