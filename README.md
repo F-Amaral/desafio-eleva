@@ -33,6 +33,7 @@ Garanta que estas ferramentas estão presentes, e na versão correta:
 
 #### CLI
 - Navegue até a pasta ```frontent/sistemaPrefeitura```
+- Execute o comando ```npm install```
 - Execute o comando ```ng serve```
 
 ##  Utilizando o sistema:
