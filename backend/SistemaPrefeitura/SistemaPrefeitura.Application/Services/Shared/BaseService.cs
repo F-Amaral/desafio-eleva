@@ -14,7 +14,7 @@ namespace SistemaPrefeitura.Application.Services.Shared
     {
         protected readonly TRepository _repository;
 
-        protected BaseService(TRepository repository)
+        public BaseService(TRepository repository)
         {
             _repository = repository;
         }

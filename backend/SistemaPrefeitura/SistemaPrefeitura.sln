@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.APP", "SistemaPrefeitura.APP\SistemaPrefeitura.APP.csproj", "{93D19694-1CD0-4493-8772-868D687916CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.APP", "SistemaPrefeitura.APP\SistemaPrefeitura.APP.csproj", "{93D19694-1CD0-4493-8772-868D687916CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Domain", "SistemaPrefeitura.Domain\SistemaPrefeitura.Domain.csproj", "{9933CD45-26C1-4B0D-B4DC-2203C257BC17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.Domain", "SistemaPrefeitura.Domain\SistemaPrefeitura.Domain.csproj", "{9933CD45-26C1-4B0D-B4DC-2203C257BC17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Infra", "SistemaPrefeitura.Infra\SistemaPrefeitura.Infra.csproj", "{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.Infra", "SistemaPrefeitura.Infra\SistemaPrefeitura.Infra.csproj", "{02073DBC-CBA5-44DF-A888-03EA6D24B6DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Infra.Common", "SistemaPrefeitura.Infra.Common\SistemaPrefeitura.Infra.Common.csproj", "{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.Infra.Common", "SistemaPrefeitura.Infra.Common\SistemaPrefeitura.Infra.Common.csproj", "{FA36D4E1-B28D-437E-9F14-35E8ABDE9E05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Domain.SQL", "SistemaPrefeitura.Domain.SQL\SistemaPrefeitura.Domain.SQL.csproj", "{07345B07-8727-4EC2-A3E8-C8A33EF783A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.Domain.SQL", "SistemaPrefeitura.Domain.SQL\SistemaPrefeitura.Domain.SQL.csproj", "{07345B07-8727-4EC2-A3E8-C8A33EF783A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Application", "SistemaPrefeitura.Application\SistemaPrefeitura.Application.csproj", "{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaPrefeitura.Application", "SistemaPrefeitura.Application\SistemaPrefeitura.Application.csproj", "{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaPrefeitura.Unit.Tests", "Tests\SistemaPrefeitura.Unit.Tests\SistemaPrefeitura.Unit.Tests.csproj", "{7AFE198D-81F5-4E69-8A40-328FE64EC7C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{94FA6403-B863-4828-B0E5-F4191A917CD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +49,16 @@ Global
 		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8E78CCC-B303-4CC5-9AB8-E52740ABDE65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AFE198D-81F5-4E69-8A40-328FE64EC7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AFE198D-81F5-4E69-8A40-328FE64EC7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AFE198D-81F5-4E69-8A40-328FE64EC7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AFE198D-81F5-4E69-8A40-328FE64EC7C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7AFE198D-81F5-4E69-8A40-328FE64EC7C0} = {94FA6403-B863-4828-B0E5-F4191A917CD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C44A7DF8-3FD5-45EB-BA95-BFF6C5E01F49}
